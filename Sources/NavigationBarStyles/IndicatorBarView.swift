@@ -18,12 +18,12 @@ internal struct IndicatorBarView<Indicator: View>: View {
             let totalItemWidth = (settings.width - (style.tabItemSpacing * CGFloat(dataStore.itemsCount - 1)))
             let navBarItemWidth = totalItemWidth / CGFloat(dataStore.itemsCount)
             if navBarItemWidth > 0, navBarItemWidth <= settings.width { 
-                let x = -settings.contentOffset / CGFloat(dataStore.itemsCount) + width / 2
+                let x = -settings.contentOffset / CGFloat(dataStore.itemsCount) + navBarItemWidth / 2
 
                 indicator
                     .foregroundColor(style.indicatorBarColor)
                     .animation(.default)
-                    .frame(width: width)
+                    .frame(width: navBarItemWidth)
                     .position(x: x, y: 0)
             }
         }

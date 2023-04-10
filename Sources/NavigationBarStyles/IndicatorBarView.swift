@@ -17,7 +17,7 @@ internal struct IndicatorBarView<Indicator: View>: View {
         HStack {
             let totalItemWidth = (settings.width - (style.tabItemSpacing * CGFloat(dataStore.itemsCount - 1)))
             let navBarItemWidth = totalItemWidth / CGFloat(dataStore.itemsCount)
-            if let width = navBarItemWidth, width > 0, width <= settings.width {
+            if navBarItemWidth > 0, navBarItemWidth <= settings.width { 
                 let x = -settings.contentOffset / CGFloat(dataStore.itemsCount) + width / 2
 
                 indicator
